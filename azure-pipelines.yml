@@ -1,0 +1,24 @@
+trigger:
+- main
+
+pool:
+  name: 'Default'
+
+steps:
+
+- task: UiPathPack@5
+  inputs:
+    versionType: 'CurrentVersion'
+    projectJsonPath: 'UiPath\ProcessNetworkEnquiries'
+    orchestratorConnection: 'AzureDevOps-UiPath'
+    outputPath: '$(Build.ArtifactStagingDirectory)\Output'
+
+- task: UiPathDeploy@5
+  inputs:
+    orchestratorConnection: 'AzureDevOps-UiPath'
+    packagesPath: '$(Build.ArtifactStagingDirectory)/Output'
+    folderName: 'Autopilot'
+    processName: 'ProcessNetworkEnquiries'
+
+
+
