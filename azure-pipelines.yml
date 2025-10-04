@@ -5,12 +5,7 @@ pool:
   name: 'Default'
 
 steps:
-- task: UseDotNet@2
-  displayName: 'Install .NET SDK 6.0.302'
-  inputs:
-    packageType: 'sdk'
-    version: '6.0.302'
-    installationPath: $(Agent.ToolsDirectory)/dotnet
+
 
 - task: UiPathPack@5
   inputs:
