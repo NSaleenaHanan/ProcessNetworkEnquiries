@@ -9,7 +9,7 @@ steps:
 - task: UiPathPack@5
   inputs:
     versionType: 'CurrentVersion'
-    projectJsonPath: 'UiPath\ProcessNetworkEnquiries'
+    projectJsonPath: '$(Build.SourcesDirectory)\project.json'
     orchestratorConnection: 'AzureDevOps-UiPath'
     outputPath: '$(Build.ArtifactStagingDirectory)\Output'
 
@@ -19,6 +19,4 @@ steps:
     packagesPath: '$(Build.ArtifactStagingDirectory)/Output'
     folderName: 'Autopilot'
     processName: 'ProcessNetworkEnquiries'
-
-
 
